@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:networking/screens/first_screen.dart';
-import 'package:networking/screens/second_screen.dart';
+import 'package:flutter_localization/screens/first_screen.dart';
+import 'package:flutter_localization/screens/second_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networking/navigation/app_routes.dart';
+import 'package:flutter_localization/navigation/app_routes.dart';
 import '../data/album.dart';
 
 class FirstScreen extends StatefulWidget {
