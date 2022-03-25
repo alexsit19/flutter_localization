@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/data/album.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SecondScreen"),
+        title: Text(AppLocalizations.of(context)!.secondScreen),
       ),
       body: FutureBuilder<List<dynamic>?>(
           future: getHttp(),
@@ -19,10 +20,10 @@ class SecondScreen extends StatelessWidget {
             );
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasError) {
-                child = const Center(
+                child = Center(
                   child: Text(
-                    "We have an error",
-                    style: TextStyle(
+                    AppLocalizations.of(context)!.weHaveAnError,
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
