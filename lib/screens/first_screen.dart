@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/navigation/app_routes.dart';
 import '../data/album.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -11,14 +12,26 @@ class FirstScreen extends StatefulWidget {
 
 class _FirstScreenState extends State<FirstScreen> {
   Album? albumItem;
-  String titleText = "Nothing to show";
-  String bodyText = "Nothing to show";
+  String titleText = "";
+  String bodyText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      setState(() {
+        titleText = AppLocalizations.of(context)!.nothingToShow;
+        bodyText = AppLocalizations.of(context)!.nothingToShow;
+      });
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("FirstScreen"),
+        title: Text(AppLocalizations.of(context)!.firstScreen),
       ),
       body: Center(
         child: Column(
@@ -28,7 +41,7 @@ class _FirstScreenState extends State<FirstScreen> {
               onPressed: () {
                 _navigateAndGetData(context);
               },
-              child: const Text("Go to SecondScreen"),
+              child: Text(AppLocalizations.of(context)!.goToSecondScreen),
             ),
             Card(
               child: ListTile(
@@ -52,7 +65,7 @@ class _FirstScreenState extends State<FirstScreen> {
   void updateTextData(Album? albumItem) {
     setState(() {
       titleText = albumItem?.title ?? titleText;
-      bodyText = albumItem?.body ?? titleText;
+      bodyText = albumItem?.body ?? bodyText;
     });
   }
 }
