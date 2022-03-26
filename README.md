@@ -4,13 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+For download this project. use next commands
 
-A few resources to get you started if this is your first Flutter project:
+git clone <git@github.com:alexsit19/flutter_localization.git>
+git checkout develop
+git fetch
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+in android studio go in file/settings choose Languages & Frameworks
+choose Dart point and enter path to dart on your hard disc
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

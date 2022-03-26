@@ -43,11 +43,11 @@ class SecondScreen extends StatelessWidget {
     dio.options.receiveTimeout = 30000;
     try {
       Response response =
-      await dio.get('https://jsonplaceholder.typicode.com/posts');
+          await dio.get('https://jsonplaceholder.typicode.com/posts');
       if (response.statusCode == 200) {
         var albumData = response.data as List;
         var listAlbums =
-        albumData.map((element) => Album.fromJson(element)).toList();
+            albumData.map((element) => Album.fromJson(element)).toList();
         return listAlbums;
       }
     } catch (error) {

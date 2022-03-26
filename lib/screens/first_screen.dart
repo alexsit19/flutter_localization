@@ -24,7 +24,6 @@ class _FirstScreenState extends State<FirstScreen> {
         bodyText = AppLocalizations.of(context)!.nothingToShow;
       });
     });
-
   }
 
   @override
@@ -57,7 +56,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   void _navigateAndGetData(BuildContext context) async {
     final result =
-    await Navigator.of(context).pushNamed(AppRoutes.secondScreen);
+        await Navigator.of(context).pushNamed(AppRoutes.secondScreen);
     albumItem = result as Album;
     updateTextData(albumItem);
   }
