@@ -16,17 +16,6 @@ class _FirstScreenState extends State<FirstScreen> {
   String bodyText = "";
 
   @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration.zero, () {
-      setState(() {
-        titleText = AppLocalizations.of(context)!.nothingToShow;
-        bodyText = AppLocalizations.of(context)!.nothingToShow;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

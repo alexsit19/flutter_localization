@@ -25,8 +25,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstScreen": MessageLookupByLibrary.simpleMessage("First Screen"),
         "goToSecondScreen":
             MessageLookupByLibrary.simpleMessage("Go to Second Screen"),
-        "nothingToShow":
-            MessageLookupByLibrary.simpleMessage("Nothing to show"),
         "secondScreen": MessageLookupByLibrary.simpleMessage("Second Screen"),
         "weHaveAnError":
             MessageLookupByLibrary.simpleMessage("We have an error")

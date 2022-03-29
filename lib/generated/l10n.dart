@@ -50,16 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Nothing to show`
-  String get nothingToShow {
-    return Intl.message(
-      'Nothing to show',
-      name: 'nothingToShow',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `First Screen`
   String get firstScreen {
     return Intl.message(

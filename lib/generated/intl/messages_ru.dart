@@ -25,7 +25,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstScreen": MessageLookupByLibrary.simpleMessage("Первый экран"),
         "goToSecondScreen":
             MessageLookupByLibrary.simpleMessage("Перейти на второй экран"),
-        "nothingToShow": MessageLookupByLibrary.simpleMessage("Нет данных"),
         "secondScreen": MessageLookupByLibrary.simpleMessage("Второй экран"),
         "weHaveAnError":
             MessageLookupByLibrary.simpleMessage("Произошла ошибка")
