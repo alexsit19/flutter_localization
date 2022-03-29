@@ -4,13 +4,13 @@ A new Flutter project.
 
 ## Getting Started
 
-For download this project. use next commands
+For download this project. use next command
 
 git clone <git@github.com:alexsit19/flutter_localization.git>
 
-git checkout develop
+next step: open flutter_localisation in Android Studio
 
-git fetch
+than run command: git checkout develop
 
 in android studio go in file/settings choose Languages & Frameworks
 choose Dart point and enter path to dart on your hard disc
