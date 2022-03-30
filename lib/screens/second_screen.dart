@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/data/album.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localization/data/repository/album_repository_impl.dart';
+import 'package:flutter_localization/widgets/error_widget.dart';
+import 'package:flutter_localization/widgets/list_albums.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+  SecondScreen({Key? key}) : super(key: key);
+  final albumRepository = AlbumRepositoryImpl();
 
   @override
   Widget build(BuildContext context) {
@@ -13,83 +16,18 @@ class SecondScreen extends StatelessWidget {
         title: Text(AppLocalizations.of(context)!.secondScreen),
       ),
       body: FutureBuilder<List<dynamic>?>(
-          future: getHttp(),
+          future: albumRepository.getHttp(),
           builder: (context, snapshot) {
             Widget child = const Center(
               child: CircularProgressIndicator(),
             );
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                child = Center(
-                  child: Text(
-                    AppLocalizations.of(context)!.weHaveAnError,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                );
-              } else if (snapshot.hasData) {
-                child = ListAlbums(list: snapshot);
-              }
+            if (snapshot.hasData) {
+              child = ListAlbums(list: snapshot);
+            } else if (snapshot.hasError) {
+              child = const CustomErrorWidget();
             }
             return child;
           }),
-    );
-  }
-
-  Future<List<Album>?> getHttp() async {
-    Dio dio = Dio();
-    dio.options.connectTimeout = 5000;
-    dio.options.receiveTimeout = 30000;
-    try {
-      Response response =
-          await dio.get('https://jsonplaceholder.typicode.com/posts');
-      if (response.statusCode == 200) {
-        var albumData = response.data as List;
-        var listAlbums =
-            albumData.map((element) => Album.fromJson(element)).toList();
-        return listAlbums;
-      }
-    } catch (error) {
-      return Future.error("$error");
-    }
-    return null;
-  }
-}
-
-class ListAlbums extends StatelessWidget {
-  final AsyncSnapshot<List?> list;
-
-  const ListAlbums({Key? key, required this.list}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.builder(
-        itemCount: list.data?.length,
-        itemBuilder: (context, index) {
-          final item = list.data?[index] as Album;
-          return Card(
-            child: ListTile(
-              title: Text(
-                item.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-              subtitle: Text(
-                item.body,
-                style: const TextStyle(fontSize: 12),
-              ),
-              onTap: () {
-                Navigator.pop(context, item);
-              },
-            ),
-          );
-        },
-      ),
     );
   }
 }

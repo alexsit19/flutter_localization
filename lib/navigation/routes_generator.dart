@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/navigation/app_routes.dart';
 import 'package:flutter_localization/screens/first_screen.dart';
 import 'package:flutter_localization/screens/second_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case AppRoutes.home:
         return MaterialPageRoute(builder: (context) => const FirstScreen());
-      case '/second':
-        return MaterialPageRoute(builder: (context) => const SecondScreen());
+      case AppRoutes.secondScreen:
+        return MaterialPageRoute(builder: (context) => SecondScreen());
       default:
         return _errorRoute();
     }

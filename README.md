@@ -15,3 +15,5 @@ than run command: git checkout develop
 in android studio go in file/settings choose Languages & Frameworks
 choose Dart point and enter path to dart on your hard disc
 
+in terminal of Android Studio run command flutter run
+ 
